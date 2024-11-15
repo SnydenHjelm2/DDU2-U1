@@ -96,7 +96,19 @@ function updateBoxDistance(farCity, closeCity) {
     closeID.textContent = `${closeCity.name}`;
 }
 
-
+function getCityByName(cityName) {
+    let cityFound = "";
+    for (let city of cities) {
+        if (city.name === cityName) {
+            cityFound = city;
+            break;
+        } else {
+            cityFound = null;
+        }
+    }
+    console.log(cityFound);
+    return cityFound;
+}
 // Recommended: constants with references to existing HTML-elements
 const h2 = document.querySelector("h2");
 const citiesDiv = document.querySelector("#cities");

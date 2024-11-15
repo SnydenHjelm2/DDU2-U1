@@ -17,6 +17,72 @@ function markCityBox(cityObject, typeOfCity) {
         cityBoxes[cityObject.id].className += ` furthest`;
     }
 }
+
+function getClosestCity(targetCityObject) {
+    let cityDistance = 0;
+    let cityId = 0;
+    for (i=0; i<distances.length; i++) {
+        if (targetCityObject.id === distances[i].city1) {
+            let currentCityId = distances[i].city2;
+            let currentDistance = distances[i].distance;
+            
+            if (cityDistance === 0) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            } else if (currentDistance < cityDistance) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            }
+        } else if (targetCityObject.id === distances[i].city2) {
+            let currentCityId = distances[i].city1;
+            let currentDistance = distances[i].distance;
+            
+            if (cityDistance === 0) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            } else if (currentDistance < cityDistance) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            }
+        }
+    }
+    let returnObject = cities[cityId];
+    returnObject.distance = cityDistance;
+    return returnObject;
+}
+
+function getFurthestCity(targetCityObject) {
+    let cityDistance = 0;
+    let cityId = 0;
+    for (i=0; i<distances.length; i++) {
+        if (targetCityObject.id === distances[i].city1) {
+            let currentCityId = distances[i].city2;
+            let currentDistance = distances[i].distance;
+            
+            if (cityDistance === 0) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            } else if (currentDistance > cityDistance) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            }
+        } else if (targetCityObject.id === distances[i].city2) {
+            let currentCityId = distances[i].city1;
+            let currentDistance = distances[i].distance;
+            
+            if (cityDistance === 0) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            } else if (currentDistance > cityDistance) {
+                cityDistance = currentDistance;
+                cityId = currentCityId;
+            }
+        }
+    }
+    let returnObject = cities[cityId];
+    returnObject.distance = cityDistance;
+    return returnObject;
+}
 // Recommended: constants with references to existing HTML-elements
 const h2 = document.querySelector("h2");
 const citiesDiv = document.querySelector("#cities");

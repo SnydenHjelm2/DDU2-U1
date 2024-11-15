@@ -83,6 +83,20 @@ function getFurthestCity(targetCityObject) {
     returnObject.distance = cityDistance;
     return returnObject;
 }
+
+function updateBoxDistance(farCity, closeCity) {
+    let closest = document.querySelector(".closest");
+    let furthest = document.querySelector(".furthest");
+    let farID = document.querySelector("#furthest");
+    let closeID = document.querySelector("#closest");
+
+    closest.textContent += ` ligger ${closeCity.distance / 10} mil bort`;
+    furthest.textContent += ` ligger ${farCity.distance / 10} mil bort`;
+    farID.textContent = `${farCity.name}`;
+    closeID.textContent = `${closeCity.name}`;
+}
+
+
 // Recommended: constants with references to existing HTML-elements
 const h2 = document.querySelector("h2");
 const citiesDiv = document.querySelector("#cities");

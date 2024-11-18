@@ -164,8 +164,9 @@ const citiesDiv = document.querySelector("#cities");
 const table = document.querySelector("#table");
 const close = document.querySelector("#closest");
 const far = document.querySelector("#furthest");
+const h3 = document.querySelector("h3");
 // Recommended: Ask for the city name and then the rest of the code
-const userInput = "Zurich";
+const userInput = "Zurish";
 
 createCityBoxes();
 const cityBoxes = document.querySelectorAll(".cityBox");
@@ -188,4 +189,10 @@ if (targetCityObject != null) {
     markCityBox(furthestCity, "furthest");
 
     updateBoxDistance(furthestCity, closestCity);
+} else {
+    h2.textContent = `${userInput} finns inte i databasen`;
+    document.querySelector("title").innerHTML = `Not found`;
+    h3.textContent = "";
 }
+
+createDistanceTable();

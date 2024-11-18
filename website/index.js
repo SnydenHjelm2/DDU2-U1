@@ -99,7 +99,8 @@ function updateBoxDistance(farCity, closeCity) {
 function getCityByName(cityName) {
     let cityFound = "";
     for (let city of cities) {
-        if (city.name === cityName) {
+        let currentCityName = city.name
+        if (currentCityName.toLowerCase() === cityName.toLowerCase()) {
             cityFound = city;
             break;
         } else {
@@ -166,7 +167,7 @@ const close = document.querySelector("#closest");
 const far = document.querySelector("#furthest");
 const h3 = document.querySelector("h3");
 // Recommended: Ask for the city name and then the rest of the code
-const userInput = "Zurish";
+const userInput = prompt("City please!");
 
 createCityBoxes();
 const cityBoxes = document.querySelectorAll(".cityBox");

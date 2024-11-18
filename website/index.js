@@ -162,9 +162,11 @@ function createDistanceTable() {
 const h2 = document.querySelector("h2");
 const citiesDiv = document.querySelector("#cities");
 const table = document.querySelector("#table");
+const close = document.querySelector("#closest");
+const far = document.querySelector("#furthest");
 // Recommended: Ask for the city name and then the rest of the code
 const userInput = "Zurich";
-//h2.textContent = userInput;
+
 createCityBoxes();
 const cityBoxes = document.querySelectorAll(".cityBox");
 
@@ -176,4 +178,10 @@ if (targetCityObject != null) {
     document.querySelector("title").innerHTML = `${targetCityObject.name}`;
 
     markCityBox(targetCityObject, "target");
+
+    let closestCity = getClosestCity(targetCityObject);
+    close.textContent = `${closestCity.name}`;
+    markCityBox(closestCity, "closest");
+    
+    
 }

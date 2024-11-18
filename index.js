@@ -10,16 +10,20 @@ function createCityBoxes() {
 function markCityBox(cityObject, typeOfCity) {
     if (typeOfCity === "target") {
         cityBoxes[cityObject.id].className += ` target`;
+
     } else if (typeOfCity === "closest") {
         cityBoxes[cityObject.id].className += ` closest`;
+
     } else if (typeOfCity === "furthest") {
         cityBoxes[cityObject.id].className += ` furthest`;
+
     }
 }
 
 function getClosestCity(targetCityObject) {
     let cityDistance = 0;
     let cityId = 0;
+
     for (i=0; i<distances.length; i++) {
         if (targetCityObject.id === distances[i].city1) {
             let currentCityId = distances[i].city2;
@@ -45,6 +49,7 @@ function getClosestCity(targetCityObject) {
             }
         }
     }
+
     let returnObject = cities[cityId];
     returnObject.distance = cityDistance;
     return returnObject;
@@ -78,6 +83,7 @@ function getFurthestCity(targetCityObject) {
             }
         }
     }
+
     let returnObject = cities[cityId];
     returnObject.distance = cityDistance;
     return returnObject;
@@ -154,17 +160,16 @@ function createDistanceTable() {
                 }
             }
         
-        
         }
     }
 }
 
 const h2 = document.querySelector("h2");
+const h3 = document.querySelector("h3");
 const citiesDiv = document.querySelector("#cities");
 const table = document.querySelector("#table");
 const close = document.querySelector("#closest");
 const far = document.querySelector("#furthest");
-const h3 = document.querySelector("h3");
 
 const userInput = prompt("City please!");
 
@@ -175,6 +180,7 @@ var targetCityObject = getCityByName(userInput);
 console.log(targetCityObject);
 
 if (targetCityObject != null) {
+
     h2.textContent = `${targetCityObject.name} (${targetCityObject.country})`;
     document.querySelector("title").innerHTML = `${targetCityObject.name}`;
 
@@ -189,6 +195,7 @@ if (targetCityObject != null) {
     markCityBox(furthestCity, "furthest");
 
     updateBoxDistance(furthestCity, closestCity);
+
 } else {
     h2.textContent = `${userInput} finns inte i databasen`;
     document.querySelector("title").innerHTML = `Not found`;

@@ -106,7 +106,6 @@ function getCityByName(cityName) {
             cityFound = null;
         }
     }
-    console.log(cityFound);
     return cityFound;
 }
 
@@ -164,8 +163,17 @@ const h2 = document.querySelector("h2");
 const citiesDiv = document.querySelector("#cities");
 const table = document.querySelector("#table");
 // Recommended: Ask for the city name and then the rest of the code
-//const userInput = prompt("City please!");
+const userInput = "Zurich";
 //h2.textContent = userInput;
 createCityBoxes();
 const cityBoxes = document.querySelectorAll(".cityBox");
 
+var targetCityObject = getCityByName(userInput);
+console.log(targetCityObject);
+
+if (targetCityObject != null) {
+    h2.textContent = `${targetCityObject.name} (${targetCityObject.country})`;
+    document.querySelector("title").innerHTML = `${targetCityObject.name}`;
+
+    markCityBox(targetCityObject, "target");
+}

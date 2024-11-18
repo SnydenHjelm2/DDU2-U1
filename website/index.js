@@ -183,5 +183,9 @@ if (targetCityObject != null) {
     close.textContent = `${closestCity.name}`;
     markCityBox(closestCity, "closest");
     
-    
+    let furthestCity = getFurthestCity(targetCityObject);
+    far.textContent = `${furthestCity.name}`;
+    markCityBox(furthestCity, "furthest");
+
+    updateBoxDistance(furthestCity, closestCity);
 }

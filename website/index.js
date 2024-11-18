@@ -1,4 +1,3 @@
-// Recommended: All functions declared here
 function createCityBoxes() {
     for (let city of cities) {
         let cityBox = document.createElement("div");
@@ -159,14 +158,14 @@ function createDistanceTable() {
         }
     }
 }
-// Recommended: constants with references to existing HTML-elements
+
 const h2 = document.querySelector("h2");
 const citiesDiv = document.querySelector("#cities");
 const table = document.querySelector("#table");
 const close = document.querySelector("#closest");
 const far = document.querySelector("#furthest");
 const h3 = document.querySelector("h3");
-// Recommended: Ask for the city name and then the rest of the code
+
 const userInput = prompt("City please!");
 
 createCityBoxes();
